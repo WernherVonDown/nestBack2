@@ -5,6 +5,8 @@ import { RoomsModule } from './rooms/rooms.module'
 import { MongooseModule } from '@nestjs/mongoose';
 import { AppGateway } from './app.gateway';
 //import { AuthModule } from './auth/auth.module';
+import { LoginModule } from './login/login.module';
+import { UsersModule } from './users/users.module';
 import { AuthService } from './auth/auth.service';
 import { RoomsService } from './rooms/rooms.service';
 import { AuthModule } from './auth/auth.module';
@@ -13,7 +15,9 @@ import { AuthModule } from './auth/auth.module';
   imports: [
     RoomsModule,
     MongooseModule.forRoot(`mongodb://admin:password@127.0.0.1:27017/admin`),
-    //AuthModule
+    AuthModule,
+    UsersModule,
+    LoginModule,
   ],
   controllers: [AppController],
   providers: [AppService],
